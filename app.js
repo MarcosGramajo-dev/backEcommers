@@ -20,7 +20,7 @@ var configRouter = require('./routes/Config');
 var app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:5173', // Permitir solicitudes desde este origen
+  origin: ['http://localhost:5173', 'https://ecommersagency.netlify.app'], // Permitir solicitudes desde este origen
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Métodos HTTP permitidos
   credentials: true, // Permitir enviar cookies y encabezados de autenticación
 };

@@ -1,6 +1,8 @@
 const schemaUser = require('../models/ModelUser')
 const express = require('express');
 const jwt = require('jsonwebtoken');
+var dotenv = require('dotenv');
+dotenv.config();
 
 const verifyUser = async (req, res, next) => {
 
@@ -13,7 +15,7 @@ const verifyUser = async (req, res, next) => {
     }
     console.log('token ====>', token)
     // Verificar el token JWT
-    jwt.verify(token, 'password123', (err, user) => {
+    jwt.verify(token, process.env.TOKEN_SECRET , (err, user) => {
         
         if (err) {
             return res.status(403).json({ message: 'Access denied' });
@@ -81,7 +83,7 @@ const login = async (req, res, next) => {
                         role: result.role
                     };
 
-                    const token = jwt.sign(payload, 'password123', options);
+                    const token = jwt.sign(payload, process.env.TOKEN_SECRET , options);
 
                     res.status(200).send({ token });
                 } else {
