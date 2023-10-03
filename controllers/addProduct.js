@@ -151,6 +151,9 @@ const getAllProducts = async (req,res) => {
     try {
         
         const updatedObject = await schemaAddProduct.find()
+
+        console.log(updatedObject)
+
         res.status(201).json(updatedObject);
 
     } catch (error) {

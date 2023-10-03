@@ -1,6 +1,7 @@
-var express = require('express');
+const express = require('express');
 const { GetConfigBasic } = require('../controllers/configBasic');
-var router = express.Router();
+const { getAllProducts } = require('../controllers/addProduct');
+const router = express.Router();
 
 const {login} = require('../controllers/user')
 
@@ -13,6 +14,8 @@ router.get('/', function(req, res, next) {
 router.get('/type', GetConfigBasic);
 
 router.post('/login', login)
+
+router.get('/product', getAllProducts)
 
 
 module.exports = router;
