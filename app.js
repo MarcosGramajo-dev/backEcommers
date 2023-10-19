@@ -19,7 +19,7 @@ var configRouter = require('./routes/Config');
 var app = express();
 
 const corsOptions = {
-  origin: 'https://backecommers.onrender.com', // Permitir solicitudes desde este origen
+  origin: 'https://ecommersagency.netlify.app', // Permitir solicitudes desde este origen
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Métodos HTTP permitidos
   credentials: true, // Permitir enviar cookies y encabezados de autenticación
 };
