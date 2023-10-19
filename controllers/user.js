@@ -1,5 +1,4 @@
 const schemaUser = require('../models/ModelUser')
-const express = require('express');
 const jwt = require('jsonwebtoken');
 var dotenv = require('dotenv');
 dotenv.config();
@@ -33,13 +32,9 @@ const verifyUser = async (req, res, next) => {
 const createUser = async (req, res, next) => {
     try {
 
-        // console.log("body-link",req.body)
-        // console.log(req.body)
         let {user, pass, role} = req.body
 
         const findUser = await schemaUser.findOne({user})
-
-        // console.log(findUser)
 
         if (findUser === null){
             const updatedObject = await schemaUser.findOneAndUpdate(

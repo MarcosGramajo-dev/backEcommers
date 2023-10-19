@@ -10,7 +10,6 @@ const cloudinary = require('cloudinary').v2;
 const {verifyUser} = require('./controllers/user')
 //import {v2 as cloudinary} from 'cloudinary';
 
-
 dotenv.config();
 
 var indexRouter = require('./routes/index');
@@ -20,7 +19,7 @@ var configRouter = require('./routes/Config');
 var app = express();
 
 const corsOptions = {
-  origin: 'https://ecommersagency.netlify.app', // Permitir solicitudes desde este origen
+  origin: 'https://backecommers.onrender.com', // Permitir solicitudes desde este origen
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Métodos HTTP permitidos
   credentials: true, // Permitir enviar cookies y encabezados de autenticación
 };
