@@ -19,11 +19,7 @@ var configRouter = require('./routes/Config');
 var app = express();
 
 const corsOptions = {
-<<<<<<< HEAD
   origin: 'https://backecommers.onrender.com', // Permitir solicitudes desde este origen
-=======
-  origin: '*', // Permitir solicitudes desde este origen
->>>>>>> 9d0c8c0841915f093a3549bbf84092ed873dcf89
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Métodos HTTP permitidos
   credentials: true, // Permitir enviar cookies y encabezados de autenticación
 };
