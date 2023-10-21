@@ -15,6 +15,9 @@ const storage = multer.diskStorage({
   }
 });
 
+const upload = multer({ storage });
+
+
 /* GET home page. */
 router.post('/addProduct', upload.fields([
   { name: 'photo1', maxCount: 1 },
@@ -22,9 +25,12 @@ router.post('/addProduct', upload.fields([
   { name: 'photo3', maxCount: 1 },
   { name: 'photo4', maxCount: 1 }]), AddProduct);
 
+  
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+
+
 
 router.get('/type', GetConfigBasic);
 
