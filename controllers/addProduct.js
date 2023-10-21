@@ -67,8 +67,8 @@ const AddProduct = async (req, res) => {
         let arrayPhotosCloudinary = [];
         let count = 0
         let photosFront = req.files;
-        // console.log(photos)
-        // console.log(photosFront.photo1[0].originalname)
+        console.log(photos)
+        console.log(photosFront.photo1[0].originalname)
 
         for (const key in photosFront) {
               const photoArray = photosFront[key];
@@ -91,11 +91,11 @@ const AddProduct = async (req, res) => {
                     }
                 })
 
-                // console.log(`Key: ${key}, Originalname: ${originalname}, Path: ${path}`);
+                console.log(`Key: ${key}, Originalname: ${originalname}, Path: ${path}`);
               }
           }
 
-          // console.log(arrayPhotosCloudinary)
+          console.log(arrayPhotosCloudinary)
         const updatedObject = await schemaAddProduct.findOneAndUpdate(
             { idProduct },
             {idProduct, modelo, age, km, combustible, motor, esUnSlide, photos: arrayPhotosCloudinary}, // Valores a actualizar o crear
