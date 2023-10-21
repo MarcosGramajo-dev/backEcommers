@@ -38,11 +38,7 @@ router.post('/config/colors', upload.single('logo'), ConfigColors);
 
 router.post('/config/links', upload.single('logo'), ConfigLinks);
 
-router.post('/addProduct', upload.fields([
-  { name: 'photo1', maxCount: 1 },
-  { name: 'photo2', maxCount: 1 },
-  { name: 'photo3', maxCount: 1 },
-  { name: 'photo4', maxCount: 1 }]), AddProduct);
+
 
 router.post('/updateProduct', upload.fields([
   { name: 'photo1', maxCount: 1 },
