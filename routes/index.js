@@ -8,6 +8,7 @@ const path = require('path');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
+    console.log(req)
     cb(null, path.join(__dirname, '../public/images')); // Ruta donde se guardarán las imágenes en el servidor
   },
   filename: function (req, file, cb) {
@@ -23,7 +24,15 @@ router.post('/addProduct', upload.fields([
   { name: 'photo1', maxCount: 1 },
   { name: 'photo2', maxCount: 1 },
   { name: 'photo3', maxCount: 1 },
-  { name: 'photo4', maxCount: 1 }]), AddProduct);
+  { name: 'photo4', maxCount: 1 }
+]), async (req, res, next) => {
+  try {
+    // Lógica para agregar un producto
+    await AddProduct(req, res, next);
+  } catch (error) {
+    next(error); // Pasa el error al middleware de manejo de errores
+  }
+});
 
   
 router.get('/', function(req, res, next) {

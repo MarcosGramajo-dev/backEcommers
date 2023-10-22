@@ -12,7 +12,7 @@ const verifyUser = async (req, res, next) => {
     } else {
         token = token.split(" ")[1];
     }
-    console.log('token ====>', token)
+    //console.log('token ====>', token)
     // Verificar el token JWT
     jwt.verify(token, process.env.TOKEN_SECRET , (err, user) => {
         
@@ -23,7 +23,7 @@ const verifyUser = async (req, res, next) => {
         if(user.role != 'admin'){
             return res.status(403).json({ message: 'Access denied not admin' });
         }
-        console.log('user==>', user)
+        //console.log('user==>', user)
 
         next();
     });
@@ -63,11 +63,11 @@ const login = async (req, res, next) => {
 
         const {user, pass} = req.body
 
-        console.log(user)
-        console.log(pass)
+        //console.log(user)
+        //console.log(pass)
 
         schemaUser.findOne({ user }).then((result) => {
-            console.log(result)
+            //console.log(result)
             if (result) {
                 // Comparar contraseñas aquí
                 if (result.pass === pass) {
@@ -100,7 +100,7 @@ const getUsers = async (req, res, next) => {
 
         const getAllUsers = await schemaUser.find()
 
-        console.log(getAllUsers)
+        //console.log(getAllUsers)
 
         res.status(201).json(getAllUsers);
 
@@ -112,7 +112,7 @@ const getUsers = async (req, res, next) => {
 
 const removeUser = async (req, res) => {
     try {
-        console.log( req.params.id)
+        //console.log( req.params.id)
 
         schemaUser.findByIdAndRemove({_id: req.params.id}).then(()=> {
             res.status(201).send({message: 'Se borro con exito'});
