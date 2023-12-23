@@ -39,6 +39,12 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/live', function(req, res, next){
+  res.json({
+    status: 200
+  })
+})
+
 
 
 router.get('/type', GetConfigBasic);
