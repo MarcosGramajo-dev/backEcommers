@@ -41,10 +41,9 @@ router.get('/', function(req, res, next) {
 
 router.get('/live', function(req, res, next){
   const ahora = new Date();
-  const horaActual = ahora.getHours();
   res.json({
     status: 200,
-    hour: horaActual
+    hour: ahora
   })
 })
 
